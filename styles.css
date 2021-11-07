@@ -1,0 +1,98 @@
+:root {
+  --color1: #1e1d2b;
+  --color2: #252736;
+  --color3: #2f3042;
+  --color4: #0c6ffd;
+  --color5: #ffffff;
+  --color6: #f4efe1;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.back-container {
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    #ffd33d,
+    #ea4aaa 17%,
+    #FF466A 34%,
+    #ffd33d 68%,
+    #ea4aaa 85%,
+    #FF466A
+  );
+  background-size: 300% 100%;
+  animation: progress-animation 3s linear infinite;
+}
+
+@keyframes progress-animation {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+
+.title {
+  width: 100%;
+  color: var(--color6);
+  text-align: center;
+  padding: 20px;
+  font-size: 3em;
+  background-color: rgba(30, 29, 43, 0.8) ;
+}
+
+.poke-container {
+  max-width: 1200px;
+}
+
+.card {
+  border-radius: 20px;
+  background-color: var(--color3);
+}
+.card-body {
+  text-align: center;
+}
+
+.card-body p {
+  font-size: 1.5em;
+}
+
+.img-container {
+  background-color: var(--color6);
+  border-radius: 20px 20px 0 0;
+  padding: 25px;
+}
+
+.spinner-border {
+  font-size: 40px;
+  display: none;
+  position: sticky;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+}
+
+.pagination {
+  width: 100%;
+  padding:25px 0 20px 0;
+  text-align: center;
+}
+
+.pagination:nth-child(1) {
+  width: 100%;
+  padding:10px 0 5px 0;
+  text-align: center;
+}
+
+.card-footer {
+  background-color: var(--color6);
+  text-align: center;
+}
