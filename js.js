@@ -13,11 +13,24 @@ const capitalize = (word) => {
   return word[0].toUpperCase() + word.slice(1).toLowerCase();
 };
 
+
+const getData = async () => {
+  try {
+    const response = await fetch(`${API_POKEMON}1/`);
+    const datos = await response.json();
+    console.log(datos.stats)
+  } catch (error) {
+    console.warn("No hay datos para mostrar: " + error);
+  }
+};
+getData()
+
 const getPokemon = async (id) => {
   try {
     const response = await fetch(`${API_POKEMON}${id}/`);
     const datos = await response.json();
     createPokemon(datos);
+    console.log(datos.stats)
     spinner.style.display = "none";
     nav.style.display = "block";
   } catch (error) {
@@ -92,6 +105,7 @@ const createPokemon = (pokemon) => {
   pokeContainer.appendChild(cardCol);
 
   modalTitle.textContent = capitalize(pokemon.name);
+  
 
 };
 
