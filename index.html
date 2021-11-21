@@ -29,20 +29,35 @@
     <div class="back-container">
       <h2 class="title">Pokedex</h2>
       <!-- CONTENEDOR -->
-      <div class="poke-container m-auto row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-4"></div>
+      <div
+        class="
+          poke-container
+          m-auto
+          row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2
+          g-4
+        "
+      ></div>
       <!-- PAGINATION -->
       <nav class="pagination pagination-lg">
         <ul class="pagination justify-content-center">
-          <li class="page-item " id="previous">
-            <a class="page-link bg-black text-light" href="#" tabindex="-1">Anterior</a>
+          <li class="page-item" id="previous">
+            <a class="page-link bg-black text-light" href="#" tabindex="-1"
+              >Anterior</a
+            >
           </li>
           <li class="page-item" id="next">
             <a class="page-link bg-black text-light" href="#">Siguiente</a>
           </li>
         </ul>
       </nav>
+      
       <!-- SPINNER -->
-      <div class="spinner-border m-auto text-dark" style="width: 6rem; height: 6rem;" role="status" id="spinner">
+      <div
+        class="spinner-border m-auto text-dark"
+        style="width: 6rem; height: 6rem"
+        role="status"
+        id="spinner"
+      >
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
@@ -58,7 +73,7 @@
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel"></h5>
             <button
               type="button"
               class="btn-close"
@@ -69,17 +84,54 @@
           <div class="modal-body">
             <p class="">HP</p>
             <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="150" style="width: 75%">75%</div>
+              <div
+                id="HP"
+                class="
+                  progress-bar progress-bar-striped progress-bar-animated
+                  bg-info
+                "
+                role="progressbar"
+                aria-valuenow="75"
+                aria-valuemin="0"
+                aria-valuemax="150"
+                style="width: 75%"
+              >
+                75%
+              </div>
             </div>
             <p class="">Attack</p>
             <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="150" style="width: 45%">45%</div>
+              <div
+                id="attack"
+                class="
+                  progress-bar progress-bar-striped progress-bar-animated
+                  bg-warning
+                "
+                role="progressbar"
+                aria-valuenow="75"
+                aria-valuemin="0"
+                aria-valuemax="150"
+                style="width: 45%"
+              >
+                45%
+              </div>
             </div>
             <p class="">Defense</p>
             <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="150" style="width: 65%">65%</div>
+              <div
+                id="defense"
+                class="
+                  progress-bar progress-bar-striped progress-bar-animated
+                  bg-success
+                "
+                role="progressbar"
+                aria-valuenow="75"
+                aria-valuemin="0"
+                aria-valuemax="150"
+              >
+                65%
+              </div>
             </div>
-
           </div>
           <div class="modal-footer">
             <button
@@ -87,7 +139,7 @@
               class="btn btn-secondary btn-block"
               data-bs-dismiss="modal"
             >
-              Close
+              Cerrar
             </button>
           </div>
         </div>

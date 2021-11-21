@@ -3,7 +3,10 @@ const previous = document.querySelector("#previous");
 const next = document.querySelector("#next");
 const spinner = document.querySelector("#spinner");
 const nav = document.querySelector("nav");
-const modalTitle = document.querySelector('.modal-title');
+const modalTitle = document.querySelector(".modal-title");
+const hp = document.getElementById("HP");
+const attack = document.getElementById("attack");
+const defense = document.getElementById("defense");
 const API_POKEMON = "https://pokeapi.co/api/v2/pokemon/";
 
 let offset = 1;
@@ -13,24 +16,27 @@ const capitalize = (word) => {
   return word[0].toUpperCase() + word.slice(1).toLowerCase();
 };
 
-
 const getData = async () => {
   try {
     const response = await fetch(`${API_POKEMON}1/`);
     const datos = await response.json();
-    console.log(datos.stats)
+    const est = datos.stats;
+    for (let i = 0; i < 3; i++) {
+      const nstats = est[i];
+      console.log(nstats.base_stat);
+    }
   } catch (error) {
     console.warn("No hay datos para mostrar: " + error);
   }
 };
-getData()
+getData();
 
 const getPokemon = async (id) => {
   try {
     const response = await fetch(`${API_POKEMON}${id}/`);
     const datos = await response.json();
     createPokemon(datos);
-    console.log(datos.stats)
+    console.log(datos.stats);
     spinner.style.display = "none";
     nav.style.display = "block";
   } catch (error) {
@@ -49,15 +55,27 @@ const getPokemons = (offset, limit) => {
   setTimeout(loop, 600);
 };
 
-const dataModal = async (id) => {
-  try {
-    const response = await fetch(`${API_POKEMON}${id}/`);
-    const data = await response.json();
-    modalTitle.textContent = pokemon.name;
-  } catch (error) {
-    
+const dataModal = async (dato, name) => {
+  modalTitle.textContent = capitalize(name);
+  for (let i = 0; i < 3; i++) {
+    const stat = dato[i];
+
+    switch (i) {
+      case 0:
+        hp.style.width = `${stat.base_stat}%`;
+        hp.innerHTML = `${stat.base_stat}%`;
+        break;
+      case 1:
+        hp.style.width = `${stat.base_stat}%`;
+        hp.innerHTML = `${stat.base_stat}%`;
+        break;
+      case 2:
+        hp.style.width = `${stat.base_stat}%`;
+        hp.innerHTML = `${stat.base_stat}%`;
+        break;
+    }
   }
-}
+};
 
 const createPokemon = (pokemon) => {
   const cardCol = document.createElement("div");
@@ -85,30 +103,16 @@ const createPokemon = (pokemon) => {
   number.classList.add("m-auto");
   number.textContent = `N°${pokemon.id.toString().padStart(3, 0)}`;
 
-  const cardFooter = document.createElement("div");
-  cardFooter.classList.add("card-footer");
-
-  const buttonType = document.createElement("button");
-  buttonType.classList.add("btn", "btn-dark", "btn-sm");
-  buttonType.setAttribute("data-bs-toggle", "modal");
-  buttonType.setAttribute("data-bs-target", "#stats");
-  buttonType.textContent = "Estadísticas";
-
   cardCol.appendChild(card);
   card.appendChild(imgContainer);
   card.appendChild(cardBody);
-  card.appendChild(cardFooter);
-  cardFooter.appendChild(buttonType);
   imgContainer.appendChild(image);
   cardBody.appendChild(name);
   cardBody.appendChild(number);
   pokeContainer.appendChild(cardCol);
 
-  modalTitle.textContent = capitalize(pokemon.name);
-  
-
+  // dataModal(pokemon.stats, pokemon.name);
 };
-
 
 const removeChildNodes = (parent) => {
   while (parent.firstChild) {
